@@ -5,8 +5,10 @@ import sys
 def massage():
     os.system('clear')
     print('--------\033[1;31;40m通用命令\033[0m--------')
-    print('----\033[1;32;40m1\033[0m:容器新版-支持单端口')
-    print('----\033[1;32;40m2\033[0m:容器原版')
+    print('----\033[1;32;40m1\033[0m:创建新版容器-支持单端口')
+    print('----\033[1;32;40m2\033[0m:创建原版容器')
+    print('----\033[1;32;40m3\033[0m:删除指定容器')
+    print('----\033[1;32;40m4\033[0m:重启指定容器')
     print('----\033[1;32;40m0\033[0m:退出程序')
     con = 1
     while con != 0:
@@ -54,7 +56,17 @@ elif Num == 2:#运行容器原版
         os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e SPEEDTEST=0 -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e WEBAPI_TOKEN=XiaoDaren --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always jiaowoxiaotete/docker-old')
     except:
         print('程序没有正确运行！\n')
+elif Num == 3:
+    name = raw_input('请输入容器名称(默认super):')
+    if len(name) == 0:
+        name = 'super'
+    os.system('docker rm -f '+name)
+elif Num == 4:
+    name = raw_input('请输入容器名称(默认super):')
+    if len(name) == 0:
+        name = 'super'
+    os.system('docker restart '+name)
 elif Num == 0:
-    sys.exit()    
+    sys.exit() 
 else:
     print('\n对不起没有改功能！！！\n')
