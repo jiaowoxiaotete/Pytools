@@ -120,7 +120,7 @@ elif Num == 7:#偏移量计算
     port = port - 11111
     print('您的偏移量为%d'% port)
 elif Num == 8:#端口防火墙
-    port = input('请输入节点服务器开通端口(必填):')
+    port = raw_input('请输入节点服务器开通端口(必填):')
     os.system('/sbin/iptables -I INPUT -p tcp --dport '+port+' -j ACCEPT')
     os.system('/sbin/iptables -I INPUT -p udp --dport '+port+' -j ACCEPT')
 elif Num == 0:
