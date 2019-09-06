@@ -4,7 +4,7 @@
 - ### 支持Python2.7版本
 - ### 系统安装环境
     - `CentOS 6/7`自带Python2.7
-    - `Debian` 使用以下代码更新&安装插件
+    - `Debian` 使用以下代码更新&安装插件 
    
     `apt-get update && apt-get install curl vim python-pip iperf3 && pip install speedtest-cli`
 
