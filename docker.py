@@ -8,13 +8,15 @@ import os
 import sys
 def massage():
     os.system('clear')
-    print('--------\033[1;31;40m通用命令\033[0m--------')
-    print('----\033[1;32;40m1\033[0m:创建新版容器-支持单端口')
-    print('----\033[1;32;40m2\033[0m:创建新版容器-支持单端口-解锁Netflix')
-    print('----\033[1;32;40m3\033[0m:创建原版容器')
-    print('----\033[1;32;40m4\033[0m:创建原版容器-解锁Netflix')
+    print('--------\033[1;31;40mDocker节点命令\033[0m--------')
+    print('----\033[1;32;40m1\033[0m:创建新版容器-端口偏移')
+    print('----\033[1;32;40m2\033[0m:创建新版容器-端口偏移-解锁Netflix')
+    print('----\033[1;32;40m3\033[0m:创建原版容器-单端口/多端口')
+    print('----\033[1;32;40m4\033[0m:创建原版容器-单端口/多端口-解锁Netflix')
+    print('--------\033[1;31;40mDocker命令\033[0m--------')
     print('----\033[1;32;40m5\033[0m:删除指定容器')
     print('----\033[1;32;40m6\033[0m:重启指定容器')
+    print('--------\033[1;31;40m其他命令\033[0m--------')
     print('----\033[1;32;40m7\033[0m:节点服务器端口偏移量计算')
     print('----\033[1;32;40m8\033[0m:Debian系统开通指定端口')
     print('----\033[1;32;40m0\033[0m:退出程序')
@@ -35,9 +37,9 @@ if Num == 1:#运行容器新版
     name = raw_input('请输入容器名称(默认super):')
     if len(name) ==0:
         name = 'super'
-    node = raw_input('请输入节点ID(默认11111):')
+    node = raw_input('请输入节点ID(默认100):')
     if len(node) == 0:
-        node = '11111'  
+        node = '100'  
     port_sev = raw_input('请输入节点服务器端口(默认11111):')  
     if len(port_sev) == 0:
         port_sev = '11111'  
@@ -55,9 +57,9 @@ if Num == 2:#运行容器新版-解锁Netflix
     name = raw_input('请输入容器名称(默认super):')
     if len(name) ==0:
         name = 'super'
-    node = raw_input('请输入节点ID(默认11111):')
+    node = raw_input('请输入节点ID(默认100):')
     if len(node) == 0:
-        node = '11111'  
+        node = '100'  
     port_sev = raw_input('请输入节点服务器端口(默认11111):')  
     if len(port_sev) == 0:
         port_sev = '11111'  
@@ -78,9 +80,9 @@ elif Num == 3:#运行容器原版
     name = raw_input('请输入容器名称(默认super):')
     if len(name) ==0:
         name = 'super'
-    node = raw_input('请输入节点ID(默认11111):')
+    node = raw_input('请输入节点ID(默认100):')
     if len(node) == 0:
-        node = '11111'
+        node = '100'
     url = raw_input('请输入网站地址(默认https://super.qaqemm.xyz):')  
     if len(url) == 0:
         url = 'https://super.qaqemm.xyz'
@@ -92,10 +94,10 @@ elif Num == 4:#运行容器原版解锁Netflix
     name = raw_input('请输入容器名称(默认super):')
     if len(name) ==0:
         name = 'super'
-    node = raw_input('请输入节点ID(默认11111):')
+    node = raw_input('请输入节点ID(默认100):')
     if len(node) == 0:
-        node = '11111'
-    dns = raw_input('请输入DNS服务器地址(默认172.81.99.87):')  
+        node = '100'
+    dns = raw_input('请输入DNS服务器地址(默认172.81.99.87-日本):')  
     if len(dns) == 0:
         dns = '172.81.99.87'
     url = raw_input('请输入网站地址(默认https://super.qaqemm.xyz):')  
@@ -126,4 +128,4 @@ elif Num == 8:#端口防火墙
 elif Num == 0:
     sys.exit() 
 else:
-    print('\n对不起没有改功能！！！\n')
+    print('\n对不起没有该功能！！！\n')
