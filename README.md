@@ -5,10 +5,13 @@
 - ### 系统安装环境
 1. `CentOS 6/7`自带Python2.7
 2. `Debian` 使用以下代码更新&安装插件
-    ``` apt-get update && apt-get install curl vim python-pip iperf3 && pip install speedtest-cli ```
+   
+    ` apt-get update && apt-get install curl vim python-pip iperf3 && pip install speedtest-cli `
 
 - ### 下载脚本
-  ``` wget https://raw.githubusercontent.com/jiaowoxiaotete/Pydocker/master/docker.py ```
+  
+  ` wget https://raw.githubusercontent.com/jiaowoxiaotete/Pydocker/master/docker.py `
+
 - ### 主要功能如下
 1. 创建新版容器-支持单端口
 2. 创建新版容器-支持单端口-解锁Netflix
