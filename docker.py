@@ -6,6 +6,7 @@
 # @Date: 2019-09-05 09:16:02
 import os
 import sys
+
 def massage():
     # os.system('clear')
     print('--------\033[1;31;40mDocker节点命令\033[0m--------')
@@ -21,14 +22,13 @@ def massage():
     print('\033[1;32;40m8\033[0m:Debian系统开通指定端口')
     print('\033[1;32;40m0\033[0m:退出程序')
     try:
-        result = int(input('----请选择:'))
+        result = input('----请选择:')
         return result
     except:
         print('\n您没有选择正确的选项：')
         sys.exit()
 
-Num = massage()
-if Num == 1:#运行容器新版
+if massage() == 1:#运行容器新版
     name = raw_input('请输入容器名称(默认super):')
     if len(name) ==0:
         name = 'super'
