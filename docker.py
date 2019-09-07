@@ -27,8 +27,8 @@ def massage():
     except:
         print('\n您没有选择正确的选项：')
         sys.exit()
-
-if massage() == 1:#运行容器新版
+Num  = massage()
+if Num == 1:#运行容器新版
     name = raw_input('请输入容器名称(默认super):')
     if len(name) ==0:
         name = 'super'
