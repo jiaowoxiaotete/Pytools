@@ -27,103 +27,97 @@ def massage():
         print('\n您没有选择正确的选项：')
         sys.exit()
 
-Num = 1
-while Num != 0:
-    Num = massage()
-    if Num == 1:#运行容器新版
-        name = raw_input('请输入容器名称(默认super):')
-        if len(name) ==0:
-            name = 'super'
-        node = raw_input('请输入节点ID(默认100):')
-        if len(node) == 0:
-            node = '100'  
-        port_sev = raw_input('请输入节点服务器端口(默认11111):')  
-        if len(port_sev) == 0:
-            port_sev = '11111'  
-        port_web = raw_input('请输入网站偏移端口(默认11111):')  
-        if len(port_web) == 0:
-            port_web = '11111'  
-        url = raw_input('请输入网站地址(默认https://super.qaqemm.xyz):')  
-        if len(url) == 0:
-            url = 'https://super.qaqemm.xyz'
-        try:
-            os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e SPEEDTEST=0 -e WEBAPI_TOKEN=XiaoDaren --log-opt max-size=50m --log-opt max-file=3 -p '+port_sev+':'+port_web+'/tcp -p '+port_sev+':'+port_web+'/udp  --restart=always jiaowoxiaotete/docker-new')
-        except:
-            print('程序没有正确运行！\n')
+Num = massage()
+if Num == 1:#运行容器新版
+    name = raw_input('请输入容器名称(默认super):')
+    if len(name) ==0:
+        name = 'super'
+    node = raw_input('请输入节点ID(默认100):')
+    if len(node) == 0:
+        node = '100'  
+    port_sev = raw_input('请输入节点服务器端口(默认11111):')  
+    if len(port_sev) == 0:
+        port_sev = '11111'  
+    port_web = raw_input('请输入网站偏移端口(默认11111):')  
+    if len(port_web) == 0:
+        port_web = '11111'  
+    url = raw_input('请输入网站地址(默认https://super.qaqemm.xyz):')  
+    if len(url) == 0:
+        url = 'https://super.qaqemm.xyz'
+    os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e SPEEDTEST=0 -e WEBAPI_TOKEN=XiaoDaren --log-opt max-size=50m --log-opt max-file=3 -p '+port_sev+':'+port_web+'/tcp -p '+port_sev+':'+port_web+'/udp  --restart=always jiaowoxiaotete/docker-new')
 
-    if Num == 2:#运行容器新版-解锁Netflix
-        name = raw_input('请输入容器名称(默认super):')
-        if len(name) ==0:
-            name = 'super'
-        node = raw_input('请输入节点ID(默认100):')
-        if len(node) == 0:
-            node = '100'  
-        port_sev = raw_input('请输入节点服务器端口(默认11111):')  
-        if len(port_sev) == 0:
-            port_sev = '11111'  
-        port_web = raw_input('请输入网站偏移端口(默认11111):')  
-        if len(port_web) == 0:
-            port_web = '11111'  
-        dns = raw_input('请输入DNS服务器地址(默认172.81.99.87):')  
-        if len(dns) == 0:
-            dns = '172.81.99.87'  
-        url = raw_input('请输入网站地址(默认https://super.qaqemm.xyz):')  
-        if len(url) == 0:
-            url = 'https://super.qaqemm.xyz'
-        try:
-            os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e SPEEDTEST=0 -e WEBAPI_TOKEN=XiaoDaren --log-opt max-size=50m --log-opt max-file=3 -p '+port_sev+':'+port_web+'/tcp -p '+port_sev+':'+port_web+'/udp -e DNS_1='+dns+' -e DNS_2='+dns+' --restart=always jiaowoxiaotete/docker-new')
-        except:
-            print('程序没有正确运行！\n')
-    elif Num == 3:#运行容器原版
-        name = raw_input('请输入容器名称(默认super):')
-        if len(name) ==0:
-            name = 'super'
-        node = raw_input('请输入节点ID(默认100):')
-        if len(node) == 0:
-            node = '100'
-        url = raw_input('请输入网站地址(默认https://super.qaqemm.xyz):')  
-        if len(url) == 0:
-            url = 'https://super.qaqemm.xyz'
-        try:
-            os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e SPEEDTEST=0 -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e WEBAPI_TOKEN=XiaoDaren --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always jiaowoxiaotete/docker-old')
-        except:
-            print('程序没有正确运行！\n')
-    elif Num == 4:#运行容器原版解锁Netflix
-        name = raw_input('请输入容器名称(默认super):')
-        if len(name) ==0:
-            name = 'super'
-        node = raw_input('请输入节点ID(默认100):')
-        if len(node) == 0:
-            node = '100'
-        dns = raw_input('请输入DNS服务器地址(默认172.81.99.87-日本):')  
-        if len(dns) == 0:
-            dns = '172.81.99.87'
-        url = raw_input('请输入网站地址(默认https://super.qaqemm.xyz):')  
-        if len(url) == 0:
-            url = 'https://super.qaqemm.xyz'
-        try:
-            os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e SPEEDTEST=0 -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e WEBAPI_TOKEN=XiaoDaren --network=host --log-opt max-size=50m --log-opt max-file=3 -e DNS_1='+dns+' -e DNS_2='+dns+' --restart=always jiaowoxiaotete/docker-old')
-        except:
-            print('程序没有正确运行！\n')
-    elif Num == 5:
-        name = raw_input('请输入容器名称(默认super):')
-        if len(name) == 0:
-            name = 'super'
-        os.system('docker rm -f '+name)
-    elif Num == 6:
-        name = raw_input('请输入容器名称(默认super):')
-        if len(name) == 0:
-            name = 'super'
-        os.system('docker restart '+name)
-    elif Num == 7:#偏移量计算
-        port = input('请输入节点服务器开通端口(必填):')
-        port = port - 11111
-        print('您的偏移量为%d'% port)
-    elif Num == 8:#端口防火墙
-        port = raw_input('请输入节点服务器开通端口(必填):')
-        os.system('/sbin/iptables -I INPUT -p tcp --dport '+port+' -j ACCEPT')
-        os.system('/sbin/iptables -I INPUT -p udp --dport '+port+' -j ACCEPT')
-    elif Num == 0:
-        sys.exit() 
-    else:
-        print('\n对不起没有该功能！！！\n')
+if Num == 2:#运行容器新版-解锁Netflix
+    name = raw_input('请输入容器名称(默认super):')
+    if len(name) ==0:
+        name = 'super'
+    node = raw_input('请输入节点ID(默认100):')
+    if len(node) == 0:
+        node = '100'  
+    port_sev = raw_input('请输入节点服务器端口(默认11111):')  
+    if len(port_sev) == 0:
+        port_sev = '11111'  
+    port_web = raw_input('请输入网站偏移端口(默认11111):')  
+    if len(port_web) == 0:
+        port_web = '11111'  
+    dns = raw_input('请输入DNS服务器地址(默认172.81.99.87):')  
+    if len(dns) == 0:
+        dns = '172.81.99.87'  
+    url = raw_input('请输入网站地址(默认https://super.qaqemm.xyz):')  
+    if len(url) == 0:
+        url = 'https://super.qaqemm.xyz'
+    os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e SPEEDTEST=0 -e WEBAPI_TOKEN=XiaoDaren --log-opt max-size=50m --log-opt max-file=3 -p '+port_sev+':'+port_web+'/tcp -p '+port_sev+':'+port_web+'/udp -e DNS_1='+dns+' -e DNS_2='+dns+' --restart=always jiaowoxiaotete/docker-new')
+
+elif Num == 3:#运行容器原版
+    name = raw_input('请输入容器名称(默认super):')
+    if len(name) ==0:
+        name = 'super'
+    node = raw_input('请输入节点ID(默认100):')
+    if len(node) == 0:
+        node = '100'
+    url = raw_input('请输入网站地址(默认https://super.qaqemm.xyz):')  
+    if len(url) == 0:
+        url = 'https://super.qaqemm.xyz'
+    os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e SPEEDTEST=0 -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e WEBAPI_TOKEN=XiaoDaren --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always jiaowoxiaotete/docker-old')
+
+elif Num == 4:#运行容器原版解锁Netflix
+    name = raw_input('请输入容器名称(默认super):')
+    if len(name) ==0:
+        name = 'super'
+    node = raw_input('请输入节点ID(默认100):')
+    if len(node) == 0:
+        node = '100'
+    dns = raw_input('请输入DNS服务器地址(默认172.81.99.87-日本):')  
+    if len(dns) == 0:
+        dns = '172.81.99.87'
+    url = raw_input('请输入网站地址(默认https://super.qaqemm.xyz):')  
+    if len(url) == 0:
+        url = 'https://super.qaqemm.xyz'
+    os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e SPEEDTEST=0 -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e WEBAPI_TOKEN=XiaoDaren --network=host --log-opt max-size=50m --log-opt max-file=3 -e DNS_1='+dns+' -e DNS_2='+dns+' --restart=always jiaowoxiaotete/docker-old')
+
+elif Num == 5:
+    name = raw_input('请输入容器名称(默认super):')
+    if len(name) == 0:
+        name = 'super'
+    os.system('docker rm -f '+name)
+
+elif Num == 6:
+    name = raw_input('请输入容器名称(默认super):')
+    if len(name) == 0:
+        name = 'super'
+    os.system('docker restart '+name)
+
+elif Num == 7:#偏移量计算
+    port = input('请输入节点服务器开通端口(必填):')
+    port = port - 11111
+    print('您的偏移量为%d'% port)
+
+elif Num == 8:#端口防火墙
+    port = raw_input('请输入节点服务器开通端口(必填):')
+    os.system('/sbin/iptables -I INPUT -p tcp --dport '+port+' -j ACCEPT')
+    os.system('/sbin/iptables -I INPUT -p udp --dport '+port+' -j ACCEPT')
+
+elif Num == 0:
+    sys.exit() 
+
+else:
+    print('\n对不起没有该功能！！！\n')
