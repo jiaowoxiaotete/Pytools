@@ -6,7 +6,6 @@
 # @Date: 2019-09-05 09:16:02
 import os
 import sys
-import time
 def massage():
     # os.system('clear')
     print('--------\033[1;31;40mDocker节点命令\033[0m--------')
@@ -46,7 +45,7 @@ if Num == 1:#运行容器新版
     if len(url) == 0:
         url = 'https://super.qaqemm.xyz'
     os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e SPEEDTEST=0 -e WEBAPI_TOKEN=XiaoDaren --log-opt max-size=50m --log-opt max-file=3 -p '+port_sev+':'+port_web+'/tcp -p '+port_sev+':'+port_web+'/udp  --restart=always jiaowoxiaotete/docker-new')
-    time.sleep(3)
+    sys.exit()
 
 if Num == 2:#运行容器新版-解锁Netflix
     name = raw_input('请输入容器名称(默认super):')
@@ -68,7 +67,7 @@ if Num == 2:#运行容器新版-解锁Netflix
     if len(url) == 0:
         url = 'https://super.qaqemm.xyz'
     os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e SPEEDTEST=0 -e WEBAPI_TOKEN=XiaoDaren --log-opt max-size=50m --log-opt max-file=3 -p '+port_sev+':'+port_web+'/tcp -p '+port_sev+':'+port_web+'/udp -e DNS_1='+dns+' -e DNS_2='+dns+' --restart=always jiaowoxiaotete/docker-new')
-    time.sleep(3)
+    sys.exit()
 
 elif Num == 3:#运行容器原版
     name = raw_input('请输入容器名称(默认super):')
@@ -81,7 +80,7 @@ elif Num == 3:#运行容器原版
     if len(url) == 0:
         url = 'https://super.qaqemm.xyz'
     os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e SPEEDTEST=0 -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e WEBAPI_TOKEN=XiaoDaren --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always jiaowoxiaotete/docker-old')
-    time.sleep(3)
+    sys.exit()
 
 elif Num == 4:#运行容器原版解锁Netflix
     name = raw_input('请输入容器名称(默认super):')
@@ -97,7 +96,7 @@ elif Num == 4:#运行容器原版解锁Netflix
     if len(url) == 0:
         url = 'https://super.qaqemm.xyz'
     os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e SPEEDTEST=0 -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e WEBAPI_TOKEN=XiaoDaren --network=host --log-opt max-size=50m --log-opt max-file=3 -e DNS_1='+dns+' -e DNS_2='+dns+' --restart=always jiaowoxiaotete/docker-old')
-    time.sleep(3)
+    sys.exit()
 
 elif Num == 5:
     name = raw_input('请输入容器名称(默认super):')
