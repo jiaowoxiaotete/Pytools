@@ -1,9 +1,12 @@
+""" /*
+ * @Author: 肖大人 
+ * @Date: 2019-09-08 12:38:35 
+ * @Last Modified by:   Jiaowoxiaotete 
+ * @Last Modified time: 2019-09-08 12:38:35 
+ */ """
 # -*- coding=UTF-8 -*-
-# @Description: 使用Python脚本快捷对接docker节点
-# @Version: 
-# @Author: 肖大人
-# @Github: https://github.com/jiaowoxiaotete
-# @Date: 2019-09-05 09:16:02
+
+
 import os
 import sys
 
