@@ -44,9 +44,9 @@ if Num == 1:#运行容器新版
     port_web = raw_input('请输入网站偏移端口(默认11111):')  
     if len(port_web) == 0:
         port_web = '11111'  
-    url = raw_input('请输入网站地址(默认https://super.qaqemm.xyz):')  
+    url = raw_input('请输入网站地址(默认https://www.baidu.com):')  
     if len(url) == 0:
-        url = 'https://super.qaqemm.xyz'
+        url = 'https://www.baidu.com'
     os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e SPEEDTEST=0 -e WEBAPI_TOKEN=XiaoDaren --log-opt max-size=50m --log-opt max-file=3 -p '+port_sev+':'+port_web+'/tcp -p '+port_sev+':'+port_web+'/udp  --restart=always jiaowoxiaotete/docker-new')
     sys.exit()
 
@@ -66,9 +66,9 @@ if Num == 2:#运行容器新版-解锁Netflix
     dns = raw_input('请输入DNS服务器地址(默认172.81.99.87):')  
     if len(dns) == 0:
         dns = '172.81.99.87'  
-    url = raw_input('请输入网站地址(默认https://super.qaqemm.xyz):')  
+    url = raw_input('请输入网站地址(默认https://www.baidu.com):')  
     if len(url) == 0:
-        url = 'https://super.qaqemm.xyz'
+        url = 'https://www.baidu.com'
     os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e SPEEDTEST=0 -e WEBAPI_TOKEN=XiaoDaren --log-opt max-size=50m --log-opt max-file=3 -p '+port_sev+':'+port_web+'/tcp -p '+port_sev+':'+port_web+'/udp -e DNS_1='+dns+' -e DNS_2='+dns+' --restart=always jiaowoxiaotete/docker-new')
     sys.exit()
 
@@ -79,9 +79,9 @@ elif Num == 3:#运行容器原版
     node = raw_input('请输入节点ID(默认100):')
     if len(node) == 0:
         node = '100'
-    url = raw_input('请输入网站地址(默认https://super.qaqemm.xyz):')  
+    url = raw_input('请输入网站地址(默认https://www.baidu.com):')  
     if len(url) == 0:
-        url = 'https://super.qaqemm.xyz'
+        url = 'https://www.baidu.com'
     os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e SPEEDTEST=0 -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e WEBAPI_TOKEN=XiaoDaren --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always jiaowoxiaotete/docker-old')
     sys.exit()
 
@@ -95,9 +95,9 @@ elif Num == 4:#运行容器原版解锁Netflix
     dns = raw_input('请输入DNS服务器地址(默认172.81.99.87-日本):')  
     if len(dns) == 0:
         dns = '172.81.99.87'
-    url = raw_input('请输入网站地址(默认https://super.qaqemm.xyz):')  
+    url = raw_input('请输入网站地址(默认https://www.baidu.com):')  
     if len(url) == 0:
-        url = 'https://super.qaqemm.xyz'
+        url = 'https://www.baidu.com'
     os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e SPEEDTEST=0 -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e WEBAPI_TOKEN=XiaoDaren --network=host --log-opt max-size=50m --log-opt max-file=3 -e DNS_1='+dns+' -e DNS_2='+dns+' --restart=always jiaowoxiaotete/docker-old')
     sys.exit()
 
