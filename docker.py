@@ -1,9 +1,8 @@
-# -*- coding=UTF-8 -*-
+
 import os
 import sys
 
 def massage():
-    # os.system('clear')
     print('--------\033[1;31;40mDocker节点命令\033[0m--------')
     print('\033[1;32;40m1\033[0m:创建新版容器-端口偏移')
     print('\033[1;32;40m2\033[0m:创建新版容器-端口偏移-解锁Netflix')
