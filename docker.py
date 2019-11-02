@@ -2,7 +2,6 @@
 # -*- coding:utf-8 -*-
 import os
 import sys
-
 def massage():
     print('--------\033[1;31;40mDocker节点命令\033[0m--------')
     print('\033[1;32;40m1\033[0m:创建新版容器-端口偏移')
@@ -24,16 +23,19 @@ def massage():
         sys.exit()
 
 Num  = massage()
-if Num == 1:#运行容器新版
+if Num == 1:#运行容器新版端口偏移
     name = raw_input('请输入容器名称(默认super):')
     if len(name) ==0:
         name = 'super'
     node = raw_input('请输入节点ID(默认100):')
     if len(node) == 0:
         node = '100'  
-    port_sev = raw_input('请输入节点服务器端口(默认11111):')  
-    if len(port_sev) == 0:
+    port_ob = raw_input('请输入端口偏移量(默认0):')  
+    if len(port_ob) == 0:
         port_sev = '11111'  
+    else:
+        port_ob = int(port_ob)
+        port_sev = 11111 + port_ob
     port_web = raw_input('请输入网站偏移端口(默认11111):')  
     if len(port_web) == 0:
         port_web = '11111'  
@@ -43,19 +45,22 @@ if Num == 1:#运行容器新版
     os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e SPEEDTEST=0 -e WEBAPI_TOKEN=XiaoDaren --log-opt max-size=50m --log-opt max-file=3 -p '+port_sev+':'+port_web+'/tcp -p '+port_sev+':'+port_web+'/udp  --restart=always jiaowoxiaotete/docker-new')
     sys.exit()
 
-if Num == 2:#运行容器新版-解锁Netflix
+if Num == 2:#运行容器新版端口偏移-解锁Netflix
     name = raw_input('请输入容器名称(默认super):')
     if len(name) ==0:
         name = 'super'
     node = raw_input('请输入节点ID(默认100):')
     if len(node) == 0:
-        node = '100'  
-    port_sev = raw_input('请输入节点服务器端口(默认11111):')  
-    if len(port_sev) == 0:
+        node = '100'
+    port_ob = raw_input('请输入端口偏移量(默认0):')  
+    if len(port_ob) == 0:
         port_sev = '11111'  
-    port_web = raw_input('请输入网站偏移端口(默认11111):')  
+    else:
+        port_ob = int(port_ob)
+        port_sev = 11111 + port_ob
+    port_web = raw_input('请输入网站偏移端口(默认11111):')
     if len(port_web) == 0:
-        port_web = '11111'  
+        port_web = '11111'
     dns = raw_input('请输入DNS服务器地址(默认172.81.99.87):')  
     if len(dns) == 0:
         dns = '172.81.99.87'  
