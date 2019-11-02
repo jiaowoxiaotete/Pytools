@@ -36,6 +36,7 @@ if Num == 1:#运行容器新版端口偏移
     else:
         port_ob = int(port_ob)
         port_sev = 11111 + port_ob
+        port_sev = str(port_sev)
     port_web = raw_input('请输入网站偏移端口(默认11111):')  
     if len(port_web) == 0:
         port_web = '11111'  
@@ -58,6 +59,7 @@ if Num == 2:#运行容器新版端口偏移-解锁Netflix
     else:
         port_ob = int(port_ob)
         port_sev = 11111 + port_ob
+        port_sev = str(port_sev)
     port_web = raw_input('请输入网站偏移端口(默认11111):')
     if len(port_web) == 0:
         port_web = '11111'
