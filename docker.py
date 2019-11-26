@@ -32,17 +32,17 @@ if Num == 1:#运行容器新版端口偏移
     node = raw_input('请输入节点ID(默认100):')
     if len(node) == 0:
         node = '100'  
-    port_ob = raw_input('请输入端口偏移量(默认0):')  
+    port_ob = raw_input('请输入端口偏移量(默认0):')
     if len(port_ob) == 0:
         port_sev = '11111'  
     else:
         port_ob = int(port_ob)
         port_sev = 11111 + port_ob
         port_sev = str(port_sev)
-    port_web = raw_input('请输入网站偏移端口(默认11111):')  
+    port_web = raw_input('请输入网站偏移端口(默认11111):')
     if len(port_web) == 0:
         port_web = '11111'  
-    url = raw_input('请输入网站地址(默认https://www.baidu.com):')  
+    url = raw_input('请输入网站地址(默认https://www.baidu.com):')
     if len(url) == 0:
         url = 'https://www.baidu.com'
     os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e SPEEDTEST=0 -e WEBAPI_TOKEN=XiaoDaren --log-opt max-size=50m --log-opt max-file=3 -p '+port_sev+':'+port_web+'/tcp -p '+port_sev+':'+port_web+'/udp  --restart=always jiaowoxiaotete/docker-new')
@@ -134,7 +134,7 @@ elif Num == 9:#V2ray免费版一键对接
     node = raw_input('请输入节点ID:')  
     if len(node) == 0:
         sys.exit()  
-    os.system('bash <(curl -L -s  https://raw.githubusercontent.com/NS-Sp4ce/V2Ray-With-SSpanel/master/install-release.sh) --panelurl '+ url +' --panelkey '+ key +' --nodeid '+ node)
+    os.system('bash <(curl -L -s  https://raw.githubusercontent.com/NS-Sp4ce/V2Ray-With-SSpanel/master/install-release.sh) --panelurl '+url+' --panelkey '+key+' --nodeid '+node)
     #增加开机自启功能
     os.system('systemctl enable v2ray')
     os.system('systemctl restart v2ray')
