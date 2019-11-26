@@ -14,6 +14,8 @@ def massage():
     print('---------\033[1;31;40m其他命令\033[0m---------')
     print('\033[1;32;40m7\033[0m:节点服务器端口偏移量计算')
     print('\033[1;32;40m8\033[0m:Debian系统开通指定端口')
+    print('\033[1;32;40m9\033[0m:V2ray免费版对接SSP')
+    print('\033[1;32;40m10\033[0m:V2ray付费版对接SSP')
     print('\033[1;32;40m0\033[0m:退出程序')
     try:
         result = input('----请选择:')
@@ -122,6 +124,26 @@ elif Num == 8:#端口防火墙
     port = raw_input('请输入节点服务器开通端口(必填):')
     os.system('/sbin/iptables -I INPUT -p tcp --dport '+port+' -j ACCEPT')
     os.system('/sbin/iptables -I INPUT -p udp --dport '+port+' -j ACCEPT')
+if Num == 9:#V2ray免费版一键对接
+    url = raw_input('请输入对接网址(默认super):')
+    if len(url) ==0:
+        url = 'https://super.qaqemm.xyz'
+    key = raw_input('请输入对接Token(默认XiaoDaren):')
+    if len(key) == 0:
+        key = 'XiaoDaren'  
+    node = raw_input('请输入节点ID:')  
+    if len(node) == 0:
+        sys.exit()  
+    os.system('bash <(curl -L -s  https://raw.githubusercontent.com/NS-Sp4ce/V2Ray-With-SSpanel/master/install-release.sh) --panelurl '+ url +' --panelkey '+ key +' --nodeid '+ node +'')
+    #增加开机自启功能
+    os.system('systemctl enable v2ray')
+    os.system('systemctl restart v2ray')
+    sys.exit()
+
+if Num == 10:#V2ray付费版一键对接 脚本内已经开启了开机自启功能
+    os.system('wget -N --no-check-certificate https://gist.github.com/Indexyz/3b541518e16aadc314af4b6e82e628bc/raw/bf959d40f3df630f8a8d0dc44413c34d2626503c/webapi.sh && chmod +x webapi.sh && bash webapi.sh')
+    sys.exit()
+
 
 elif Num == 0:
     sys.exit() 
