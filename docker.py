@@ -136,8 +136,6 @@ elif Num == 9:#V2ray免费版一键对接
         sys.exit()  
     os.system('bash <\(curl -L -s  https://raw.githubusercontent.com/NS-Sp4ce/V2Ray-With-SSpanel/master/install-release.sh\) --panelurl '+url+' --panelkey '+key+' --nodeid '+node)
     #增加开机自启功能
-    os.system('systemctl enable v2ray')
-    os.system('systemctl restart v2ray')
     sys.exit()
 
 elif Num == 10:#V2ray付费版一键对接 脚本内已经开启了开机自启功能
