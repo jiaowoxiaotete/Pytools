@@ -10,7 +10,7 @@ def massage():
     print('\033[1;32;40m4\033[0m:创建原版容器-单端口/多端口-解锁Netflix')
     print('---------\033[1;31;40mDocker命令\033[0m---------')
     print('\033[1;32;40m5\033[0m:删除指定容器')
-    print('\033[1;32;40m6\033[0m:重启指定容器')
+    print('\033[1;32;40m6\033[0m:重启Docker')
     print('---------\033[1;31;40m其他命令\033[0m---------')
     print('\033[1;32;40m7\033[0m:节点服务器端口偏移量计算')
     print('\033[1;32;40m8\033[0m:Debian系统开通指定端口')
@@ -108,22 +108,24 @@ elif Num == 5:
     if len(name) == 0:
         name = 'super'
     os.system('docker rm -f '+name)
+    sys.exit()
 
 elif Num == 6:
-    name = raw_input('请输入容器名称(默认super):')
-    if len(name) == 0:
-        name = 'super'
-    os.system('docker restart '+name)
+    os.system('docker restart docker')
+    sys.exit()
 
 elif Num == 7:#偏移量计算
     port = input('请输入节点服务器开通端口(必填):')
     port = port - 11111
     print('您的偏移量为%d'% port)
+    sys.exit()
 
 elif Num == 8:#端口防火墙
     port = raw_input('请输入节点服务器开通端口(必填):')
     os.system('/sbin/iptables -I INPUT -p tcp --dport '+port+' -j ACCEPT')
     os.system('/sbin/iptables -I INPUT -p udp --dport '+port+' -j ACCEPT')
+    sys.exit()
+
 elif Num == 9:#V2ray免费版一键对接
     url = raw_input('请输入对接网址(默认baidu):')
     if len(url) ==0:
@@ -149,19 +151,33 @@ elif Num == 10:#V2ray付费版一键对接 脚本内已经开启了开机自启�
     os.system('wget -N --no-check-certificate https://gist.github.com/Indexyz/3b541518e16aadc314af4b6e82e628bc/raw/bf959d40f3df630f8a8d0dc44413c34d2626503c/webapi.sh && chmod +x webapi.sh && bash webapi.sh')
     sys.exit()
 
+elif Num == 11:#Centos 关闭防火墙
+    os.system('systemctl stop firewalld.service')
+    os.system('systemctl disable firewalld.service')
+    sys.exit()
+
+elif Num == 12:#Centos 安装wget
+    os.system('yum -y install wget')
+    sys.exit()
+
+elif Num == 13:#Centos 更新curl
+    os.system('yum update nss curl')
+    sys.exit()
+
+elif Num == 14:#Centos 安装vim
+    os.system('yum install vim -y')
+    sys.exit()
+
+elif Num == 15:#Centos 安装docker
+    os.system('yum install vim -y')
+    sys.exit()
+
 elif Num == 0:
     sys.exit() 
 
 else:
     print('\n对不起没有该功能！！！\n')
 
-
-stop_wall1 = 'systemctl stop firewalld.service'
-stop_wall2 = 'systemctl disable firewalld.service'
-enable_docker = 'systemctl enable docker'
-centos_install_wget = 'yum -y install wget'
-centos_update_curl = 'yum update nss curl'
-centos_install_vim = 'yum install vim -y'
 centos_install_docker =''
 
 # docker version > /dev/null || curl -fsSL get.docker.com | bash
