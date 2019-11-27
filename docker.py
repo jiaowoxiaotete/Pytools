@@ -150,3 +150,21 @@ elif Num == 0:
 
 else:
     print('\n对不起没有该功能！！！\n')
+
+
+stop_wall1 = 'systemctl stop firewalld.service'
+stop_wall2 = 'systemctl disable firewalld.service'
+enable_docker = 'systemctl enable docker'
+centos_install_wget = 'yum -y install wget'
+centos_update_curl = 'yum update nss curl'
+centos_install_vim = 'yum install vim -y'
+centos_install_docker =''
+
+# docker version > /dev/null || curl -fsSL get.docker.com | bash
+# service docker restart
+# systemctl enable docker
+# crontab -l > docker.cron
+# echo '0 4 * * * docker restart $(docker ps -q)' >> docker.cron
+# crontab docker.cron
+
+bbr_download = 'wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh'
