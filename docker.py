@@ -177,14 +177,3 @@ elif Num == 0:
 
 else:
     print('\n对不起没有该功能！！！\n')
-
-centos_install_docker =''
-
-# docker version > /dev/null || curl -fsSL get.docker.com | bash
-# service docker restart
-# systemctl enable docker
-# crontab -l > docker.cron
-# echo '0 4 * * * docker restart $(docker ps -q)' >> docker.cron
-# crontab docker.cron
-
-bbr_download = 'wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh'
