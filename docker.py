@@ -125,17 +125,21 @@ elif Num == 8:#端口防火墙
     os.system('/sbin/iptables -I INPUT -p tcp --dport '+port+' -j ACCEPT')
     os.system('/sbin/iptables -I INPUT -p udp --dport '+port+' -j ACCEPT')
 elif Num == 9:#V2ray免费版一键对接
-    url = raw_input('请输入对接网址(默认super):')
+    url = raw_input('请输入对接网址(默认baidu):')
     if len(url) ==0:
-        url = 'https://super.qaqemm.xyz'
-    key = raw_input('请输入对接Token(默认XiaoDaren):')
-    if len(key) == 0:
-        key = 'XiaoDaren'  
-    node = raw_input('请输入节点ID:')  
-    if len(node) == 0:
+        url = 'https://www.baidu.com'
+    else:
+        print('您的对接网址为：%s'% url)
+    token = raw_input('请输入对接Token(默认XiaoDaren):')
+    if len(token) == 0:
+        token = 'XiaoDaren'  
+    else:
+        print('你的Token为：%s'% token)
+    nodeid = raw_input('请输入节点ID:')  
+    if len(nodeid) == 0:
         sys.exit()  
     os.system('wget -N --no-check-certificate https://raw.githubusercontent.com/NS-Sp4ce/V2Ray-With-SSpanel/master/install-release.sh')
-    os.system('bash install-release.sh --panelurl '+url+' --panelkey '+key+' --nodeid '+node)
+    os.system('bash install-release.sh --panelurl '+url+' --panelkey '+token+' --nodeid '+nodeid)
     #增加开机自启功能
     os.system('systemctl enable v2ray')
     os.system('systemctl restart v2ray')
