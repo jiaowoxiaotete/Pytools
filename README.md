@@ -1,8 +1,7 @@
 # Pytools
-> 使用`Python`脚本创建容器节点 
+> 使用`Python`编写的一个快捷命令脚本
 
 ----
-
 
 - ### 支持Python2.7版本
 - ### 系统安装环境
@@ -30,5 +29,8 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/jiaowoxiaotete/
 8. Debian系统开通指定端口
 9. V2ray免费版对接SSP
 10. V2ray付费版对接SSP
-11. 退出程序
+11. 关闭防火墙
+12. 安装wget
+13. 安装curl
+14. 退出程序
 
