@@ -16,6 +16,10 @@ def massage():
     print('\033[1;32;40m8\033[0m:Debian系统开通指定端口')
     print('\033[1;32;40m9\033[0m:V2ray免费版对接SSP')
     print('\033[1;32;40m10\033[0m:V2ray付费版对接SSP')
+    print('\033[1;32;40m11\033[0m:关闭防火墙')
+    print('\033[1;32;40m12\033[0m:安装wget')
+    print('\033[1;32;40m13\033[0m:安装curl')
+    print('\033[1;32;40m14\033[0m:安装vim')
     print('\033[1;32;40m0\033[0m:退出程序')
     try:
         result = input('----请选择:')
@@ -165,10 +169,6 @@ elif Num == 13:#Centos 更新curl
     sys.exit()
 
 elif Num == 14:#Centos 安装vim
-    os.system('yum install vim -y')
-    sys.exit()
-
-elif Num == 15:#Centos 安装docker
     os.system('yum install vim -y')
     sys.exit()
 
