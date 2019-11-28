@@ -20,6 +20,7 @@ def massage():
     print('\033[1;32;40m12\033[0m:安装wget')
     print('\033[1;32;40m13\033[0m:安装curl')
     print('\033[1;32;40m14\033[0m:安装vim')
+    print('\033[1;32;40m15\033[0m:安装BBR')
     print('\033[1;32;40m0\033[0m:退出程序')
     try:
         result = input('----请选择:')
@@ -170,6 +171,10 @@ elif Num == 13:#Centos 更新curl
 
 elif Num == 14:#Centos 安装vim
     os.system('yum install vim -y')
+    sys.exit()
+
+elif Num == 15:#BBR加速
+    os.system('wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh')
     sys.exit()
 
 elif Num == 0:

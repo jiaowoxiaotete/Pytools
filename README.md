@@ -32,5 +32,6 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/jiaowoxiaotete/
 11. 关闭防火墙
 12. 安装wget
 13. 安装curl
-14. 退出程序
+14. 安装BBR
+15. 退出程序
 
