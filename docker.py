@@ -18,11 +18,14 @@ def massage():
     print('\033[1;32;40m10\033[0m:V2ray付费版对接SSP')
     print('\033[1;32;40m11\033[0m:V2ray免费版-Docker对接SSP')
     print('\033[1;32;40m12\033[0m:关闭防火墙')
-    print('\033[1;32;40m13\033[0m:安装wget')
-    print('\033[1;32;40m14\033[0m:安装curl')
-    print('\033[1;32;40m15\033[0m:安装vim')
-    print('\033[1;32;40m16\033[0m:安装BBR')
-    print('\033[1;32;40m17\033[0m:运行CF-DDNS')
+    print('\033[1;32;40m13\033[0m:CentOS安装Docker')
+    print('\033[1;32;40m14\033[0m:CentOS安装wget')
+    print('\033[1;32;40m15\033[0m:CentOS安装curl')
+    print('\033[1;32;40m16\033[0m:CentOS安装vim')
+    print('\033[1;32;40m17\033[0m:CentOS安装BBR')
+    print('\033[1;32;40m18\033[0m:编辑CF-DDNS')
+    print('\033[1;32;40m19\033[0m:运行CF-DDNS')
+    print('\033[1;32;40m20\033[0m:CF-DDNS定时检测')
     print('\033[1;32;40m0\033[0m:退出程序')
     try:
         result = input('----请选择:')
@@ -196,7 +199,8 @@ elif Num == 9:#V2ray免费版一键对接
     nodeid = raw_input('请输入节点ID:')  
     if len(nodeid) == 0:
         sys.exit()  
-    os.system('wget -N --no-check-certificate https://raw.githubusercontent.com/NS-Sp4ce/V2Ray-With-SSpanel/master/install-release.sh')
+    os.system('wget -N --no-check-certificate \
+        https://raw.githubusercontent.com/NS-Sp4ce/V2Ray-With-SSpanel/master/install-release.sh')
     os.system('bash install-release.sh --panelurl '+url+' --panelkey '+token+' --nodeid '+nodeid)
     #增加开机自启功能
     os.system('systemctl enable v2ray')
@@ -219,30 +223,49 @@ elif Num == 11:#V2ray Docker对接SSP
     sys.exit()
 
 elif Num == 12:#Centos 关闭防火墙
-    os.system('systemctl stop firewalld.service')
-    os.system('systemctl disable firewalld.service')
+    os.system('systemctl stop firewalld.service && \
+        systemctl disable firewalld.service')
     sys.exit()
 
-elif Num == 13:#Centos 安装wget
+elif Num == 13:#Centos 安装CentOS
+    os.system('docker version > /dev/null || curl -fsSL get.docker.com | bash && \
+        service docker restart && \
+        systemctl enable docker && \
+        crontab -l > docker.cron && \
+        echo \'0 4 * * * docker restart $(docker ps -q)\' >> docker.cron && \
+        crontab docker.cron')
+    sys.exit()
+
+elif Num == 14:#Centos 安装wget
     os.system('yum -y install wget')
     sys.exit()
 
-elif Num == 14:#Centos 更新curl
+elif Num == 15:#Centos 更新curl
     os.system('yum update nss curl')
     sys.exit()
 
-elif Num == 15:#Centos 安装vim
+elif Num == 16:#Centos 安装vim
     os.system('yum install vim -y')
     sys.exit()
 
-elif Num == 16:#BBR加速
+elif Num == 17:#BBR加速
     os.system('wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && \
         chmod +x tcp.sh && ./tcp.sh')
     sys.exit()
 
-elif Num == 17:#运行CF-DDNS
-    os.system('wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && \
-        chmod +x tcp.sh && ./tcp.sh')
+elif Num == 18:#编辑CF-DDNS
+    os.system('wget  -N --no-check-certificate \
+        https://raw.githubusercontent.com/yulewang/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh && vi cf-v4-ddns.sh')
+    sys.exit()
+
+elif Num == 19:#运行CF-DDNS
+    os.system('chmod +x cf-v4-ddns.sh && bash cf-v4-ddns.sh')
+    sys.exit()
+
+elif Num == 20:#CF-DENS定时检测
+    os.system('crontab -l > cf.cron && \
+        echo \'*/2 * * * * /root/cf-v4-ddns.sh >/dev/null 2>&1\' >> cf.cron && \
+        crontab cf.cron')
     sys.exit()
 
 elif Num == 0:
