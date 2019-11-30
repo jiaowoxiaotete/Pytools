@@ -51,7 +51,19 @@ if Num == 1:#运行容器新版端口偏移
     url = raw_input('请输入网站地址(默认https://www.baidu.com):')
     if len(url) == 0:
         url = 'https://www.baidu.com'
-    os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e SPEEDTEST=0 -e WEBAPI_TOKEN=XiaoDaren --log-opt max-size=50m --log-opt max-file=3 -p '+port_sev+':'+port_web+'/tcp -p '+port_sev+':'+port_web+'/udp  --restart=always jiaowoxiaotete/docker-new')
+    os.system('docker run -d --name='+name+' \
+        -e NODE_ID='+node+' \
+        -e MU_SUFFIX=cloudfront.com \
+        -e MU_REGEX=%5m%id.%suffix \
+        -e API_INTERFACE=modwebapi \
+        -e WEBAPI_URL='+url+' \
+        -e SPEEDTEST=0 \
+        -e WEBAPI_TOKEN=XiaoDaren \
+        --log-opt max-size=50m \
+        --log-opt max-file=3 \
+        -p '+port_sev+':'+port_web+'/tcp \
+        -p '+port_sev+':'+port_web+'/udp  \
+        --restart=always jiaowoxiaotete/docker-new')
     sys.exit()
 
 if Num == 2:#运行容器新版端口偏移-解锁Netflix
@@ -77,7 +89,20 @@ if Num == 2:#运行容器新版端口偏移-解锁Netflix
     url = raw_input('请输入网站地址(默认https://www.baidu.com):')  
     if len(url) == 0:
         url = 'https://www.baidu.com'
-    os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e SPEEDTEST=0 -e WEBAPI_TOKEN=XiaoDaren --log-opt max-size=50m --log-opt max-file=3 -p '+port_sev+':'+port_web+'/tcp -p '+port_sev+':'+port_web+'/udp -e DNS_1='+dns+' -e DNS_2='+dns+' --restart=always jiaowoxiaotete/docker-new')
+    os.system('docker run -d --name='+name+' \
+        -e NODE_ID='+node+' \
+        -e MU_SUFFIX=cloudfront.com \
+        -e MU_REGEX=%5m%id.%suffix \
+        -e API_INTERFACE=modwebapi \
+        -e WEBAPI_URL='+url+' \
+        -e SPEEDTEST=0 \
+        -e WEBAPI_TOKEN=XiaoDaren \
+        --log-opt max-size=50m --log-opt max-file=3 \
+        -p '+port_sev+':'+port_web+'/tcp \
+        -p '+port_sev+':'+port_web+'/udp \
+        -e DNS_1='+dns+' \
+        -e DNS_2='+dns+' \
+        --restart=always jiaowoxiaotete/docker-new')
     sys.exit()
 
 elif Num == 3:#运行容器原版
@@ -90,7 +115,18 @@ elif Num == 3:#运行容器原版
     url = raw_input('请输入网站地址(默认https://www.baidu.com):')  
     if len(url) == 0:
         url = 'https://www.baidu.com'
-    os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e SPEEDTEST=0 -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e WEBAPI_TOKEN=XiaoDaren --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always jiaowoxiaotete/docker-old')
+    os.system('docker run -d --name='+name+' \
+    -e NODE_ID='+node+' \
+    -e SPEEDTEST=0 \
+    -e MU_SUFFIX=cloudfront.com \
+    -e MU_REGEX=%5m%id.%suffix \
+    -e API_INTERFACE=modwebapi \
+    -e WEBAPI_URL='+url+' \
+    -e WEBAPI_TOKEN=XiaoDaren \
+    --network=host \
+    --log-opt max-size=50m \
+    --log-opt max-file=3 \
+    --restart=always jiaowoxiaotete/docker-old')
     sys.exit()
 
 elif Num == 4:#运行容器原版解锁Netflix
@@ -106,7 +142,20 @@ elif Num == 4:#运行容器原版解锁Netflix
     url = raw_input('请输入网站地址(默认https://www.baidu.com):')  
     if len(url) == 0:
         url = 'https://www.baidu.com'
-    os.system('docker run -d --name='+name+' -e NODE_ID='+node+' -e SPEEDTEST=0 -e MU_SUFFIX=cloudfront.com -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL='+url+' -e WEBAPI_TOKEN=XiaoDaren --network=host --log-opt max-size=50m --log-opt max-file=3 -e DNS_1='+dns+' -e DNS_2='+dns+' --restart=always jiaowoxiaotete/docker-old')
+    os.system('docker run -d --name='+name+' \
+    -e NODE_ID='+node+' \
+    -e SPEEDTEST=0 \
+    -e MU_SUFFIX=cloudfront.com \
+    -e MU_REGEX=%5m%id.%suffix \
+    -e API_INTERFACE=modwebapi \
+    -e WEBAPI_URL='+url+' \
+    -e WEBAPI_TOKEN=XiaoDaren \
+    --network=host \
+    --log-opt max-size=50m \
+    --log-opt max-file=3 \
+    -e DNS_1='+dns+' \
+    -e DNS_2='+dns+' \
+    --restart=always jiaowoxiaotete/docker-old')
     sys.exit()
 
 elif Num == 5:
@@ -154,7 +203,10 @@ elif Num == 9:#V2ray免费版一键对接
     sys.exit()
 
 elif Num == 10:#V2ray付费版一键对接 脚本内已经开启了开机自启功能
-    os.system('wget -N --no-check-certificate https://gist.github.com/Indexyz/3b541518e16aadc314af4b6e82e628bc/raw/bf959d40f3df630f8a8d0dc44413c34d2626503c/webapi.sh && chmod +x webapi.sh && bash webapi.sh')
+    os.system('wget -N --no-check-certificate \
+        https://gist.github.com/Indexyz/3b541518e16aadc314af4b6e82e628bc/raw/bf959d40f3df630f8a8d0dc44413c34d2626503c/webapi.sh && \
+        chmod +x webapi.sh && \
+        bash webapi.sh')
     sys.exit()
 
 elif Num == 11:#V2ray Docker对接SSP
@@ -183,7 +235,8 @@ elif Num == 15:#Centos 安装vim
     sys.exit()
 
 elif Num == 16:#BBR加速
-    os.system('wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh')
+    os.system('wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && \
+        chmod +x tcp.sh && ./tcp.sh')
     sys.exit()
 
 elif Num == 0:
