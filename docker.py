@@ -16,11 +16,12 @@ def massage():
     print('\033[1;32;40m8\033[0m:Debian系统开通指定端口')
     print('\033[1;32;40m9\033[0m:V2ray免费版对接SSP')
     print('\033[1;32;40m10\033[0m:V2ray付费版对接SSP')
-    print('\033[1;32;40m11\033[0m:关闭防火墙')
-    print('\033[1;32;40m12\033[0m:安装wget')
-    print('\033[1;32;40m13\033[0m:安装curl')
-    print('\033[1;32;40m14\033[0m:安装vim')
-    print('\033[1;32;40m15\033[0m:安装BBR')
+    print('\033[1;32;40m11\033[0m:V2ray免费版-Docker对接SSP')
+    print('\033[1;32;40m12\033[0m:关闭防火墙')
+    print('\033[1;32;40m13\033[0m:安装wget')
+    print('\033[1;32;40m14\033[0m:安装curl')
+    print('\033[1;32;40m15\033[0m:安装vim')
+    print('\033[1;32;40m16\033[0m:安装BBR')
     print('\033[1;32;40m0\033[0m:退出程序')
     try:
         result = input('----请选择:')
@@ -156,24 +157,32 @@ elif Num == 10:#V2ray付费版一键对接 脚本内已经开启了开机自启�
     os.system('wget -N --no-check-certificate https://gist.github.com/Indexyz/3b541518e16aadc314af4b6e82e628bc/raw/bf959d40f3df630f8a8d0dc44413c34d2626503c/webapi.sh && chmod +x webapi.sh && bash webapi.sh')
     sys.exit()
 
-elif Num == 11:#Centos 关闭防火墙
+elif Num == 11:#V2ray Docker对接SSP
+    os.system('mkdir v2ray-agent && \
+        cd v2ray-agent && \
+        curl https://raw.githubusercontent.com/hxc1427418039/v2ray-sspanel-v3-mod_Uim-plugin/master/install.sh -o install.sh && \
+        chmod +x install.sh && \
+        bash install.sh')
+    sys.exit()
+
+elif Num == 12:#Centos 关闭防火墙
     os.system('systemctl stop firewalld.service')
     os.system('systemctl disable firewalld.service')
     sys.exit()
 
-elif Num == 12:#Centos 安装wget
+elif Num == 13:#Centos 安装wget
     os.system('yum -y install wget')
     sys.exit()
 
-elif Num == 13:#Centos 更新curl
+elif Num == 14:#Centos 更新curl
     os.system('yum update nss curl')
     sys.exit()
 
-elif Num == 14:#Centos 安装vim
+elif Num == 15:#Centos 安装vim
     os.system('yum install vim -y')
     sys.exit()
 
-elif Num == 15:#BBR加速
+elif Num == 16:#BBR加速
     os.system('wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh')
     sys.exit()
 
