@@ -26,6 +26,7 @@ def massage():
     print('\033[1;32;40m18\033[0m:编辑CF-DDNS')
     print('\033[1;32;40m19\033[0m:运行CF-DDNS')
     print('\033[1;32;40m20\033[0m:CF-DDNS定时检测')
+    print('\033[1;32;40m21\033[0m:关闭手动版V2ray')
     print('\033[1;32;40m0\033[0m:退出程序')
     try:
         result = input('----请选择:')
@@ -162,7 +163,7 @@ elif Num == 4:#运行容器原版解锁Netflix
     --restart=always jiaowoxiaotete/docker-old')
     sys.exit()
 
-elif Num == 5:
+elif Num == 5:#重启制定容器
     name = raw_input('请输入容器名称(默认super):')
     if len(name) == 0:
         name = 'super'
@@ -203,8 +204,7 @@ elif Num == 9:#V2ray免费版一键对接
         https://raw.githubusercontent.com/NS-Sp4ce/V2Ray-With-SSpanel/master/install-release.sh')
     os.system('bash install-release.sh --panelurl '+url+' --panelkey '+token+' --nodeid '+nodeid)
     #增加开机自启功能
-    os.system('systemctl enable v2ray')
-    os.system('systemctl restart v2ray')
+    os.system('systemctl enable v2ray && systemctl restart v2ray')
     sys.exit()
 
 elif Num == 10:#V2ray付费版一键对接 脚本内已经开启了开机自启功能
@@ -266,6 +266,10 @@ elif Num == 20:#CF-DENS定时检测
     os.system('crontab -l > cf.cron && \
         echo \'*/2 * * * * /root/cf-v4-ddns.sh >/dev/null 2>&1\' >> cf.cron && \
         crontab cf.cron')
+    sys.exit()
+
+elif Num == 21:#运行CF-DDNS
+    os.system('systemctl stop v2ray && systemctl disable v2ray')
     sys.exit()
 
 elif Num == 0:
