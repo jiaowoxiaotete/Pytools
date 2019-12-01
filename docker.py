@@ -169,8 +169,8 @@ elif Num == 5:
     os.system('docker rm -f '+name)
     sys.exit()
 
-elif Num == 6:
-    os.system('docker restart docker')
+elif Num == 6: #重启Docker
+    os.system('systemctl restart docker')
     sys.exit()
 
 elif Num == 7:#偏移量计算
