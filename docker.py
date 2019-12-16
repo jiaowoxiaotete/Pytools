@@ -233,7 +233,8 @@ elif Num == 13:#Centos 安装CentOS
         systemctl enable docker && \
         crontab -l > docker.cron && \
         echo \'0 4 * * * docker restart $(docker ps -q)\' >> docker.cron && \
-        crontab docker.cron')
+        crontab docker.cron && \
+        systemclt enable docker')
     sys.exit()
 
 elif Num == 14:#Centos 安装wget
