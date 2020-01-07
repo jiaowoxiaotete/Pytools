@@ -27,6 +27,9 @@ def massage():
     print('\033[1;32;40m19\033[0m:运行CF-DDNS')
     print('\033[1;32;40m20\033[0m:CF-DDNS定时检测')
     print('\033[1;32;40m21\033[0m:关闭手动版V2ray')
+    print('\033[1;32;40m22\033[0m:安装Brook')
+    print('\033[1;32;40m23\033[0m:Debian安装Docker')
+    print('\033[1;32;40m24\033[0m:Debian更新组件')
     print('\033[1;32;40m0\033[0m:退出程序')
     try:
         result = input('----请选择:')
@@ -273,8 +276,45 @@ elif Num == 21:#运行CF-DDNS
     os.system('systemctl stop v2ray && systemctl disable v2ray')
     sys.exit()
 
+elif Num == 22:
+    port_a = raw_input('请输入转发机端口:')
+    abroad_ip = raw_input('请输入被转发机IP:')
+    port_b = raw_input('请输入被转发机端口:')
+    os.system('cd /root && \
+        mkdir brook && \
+        cd brook && \
+        brook_ver=$(wget -qO- "https://github.com/txthinking/brook/tags"| grep "/txthinking/brook/releases/tag/"| head -n 1| awk -F "/tag/" \'{print $2}\'| sed \'s/\\">//\') && \
+        echo ${brook_ver} && \
+        wget -N --no-check-certificate "https://github.com/txthinking/brook/releases/download/${brook_ver}/brook" && \
+        chmod +x brook && \
+        nohup ./brook relay -l :port_a -r abroad_ip:port_b > /dev/null 2>&1 &')
+    sys.exit()
+
+elif Num ==23:#Debian安装Docker
+    os.system('curl -sSL https://get.docker.com/ | sh && \
+    systemctl start docker && \
+    systemctl enable docker.service && \
+    systemctl enable docker && \
+    crontab -l > docker.cron && \
+    echo \'0 4 * * * docker restart $(docker ps -q)\' >> docker.cron && \
+    crontab docker.cron')
+    os.exit()
+
+elif Num == 24:#Debian 更新组件
+    os.system('apt-get update && \
+        apt-get install curl vim python-pip iperf3 && \
+        pip install speedtest-cli')
+    os.exit()
+
 elif Num == 0:
     sys.exit() 
 
 else:
     print('\n对不起没有该功能！！！\n')
+
+# 更换阿里云的源代码
+# yum install -y wget
+# wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+# yum install -y epel-release
+# yum clean all
+# yum makecache
