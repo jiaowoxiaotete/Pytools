@@ -293,11 +293,7 @@ elif Num == 22:
 elif Num ==23:#Debian安装Docker
     os.system('curl -sSL https://get.docker.com/ | sh && \
     systemctl start docker && \
-    systemctl enable docker.service && \
-    systemctl enable docker && \
-    crontab -l > docker.cron && \
-    echo \'0 4 * * * docker restart $(docker ps -q)\' >> docker.cron && \
-    crontab docker.cron')
+    systemctl enable docker.service')
     os.exit()
 
 elif Num == 24:#Debian 更新组件
@@ -305,6 +301,11 @@ elif Num == 24:#Debian 更新组件
         apt-get install curl vim python-pip iperf3 && \
         pip install speedtest-cli')
     os.exit()
+
+elif Num == 25:#Debian Docker 定时重启
+    os.system('crontab -l > docker.cron && \
+    echo \'0 4 * * * docker restart $(docker ps -q)\' >> docker.cron && \
+    crontab docker.cron')
 
 elif Num == 0:
     sys.exit() 
