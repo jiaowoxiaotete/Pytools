@@ -295,18 +295,25 @@ elif Num ==23:#Debian安装Docker
     os.system('curl -sSL https://get.docker.com/ | sh && \
     systemctl start docker && \
     systemctl enable docker.service')
-    os.exit()
+    sys.exit()
 
 elif Num == 24:#Debian 更新组件
     os.system('apt-get update && \
         apt-get install curl vim python-pip iperf3 && \
         pip install speedtest-cli')
-    os.exit()
+    sys.exit()
 
 elif Num == 25:#Debian Docker 定时重启
     os.system('crontab -l > docker.cron && \
     echo \'0 4 * * * docker restart $(docker ps -q)\' >> docker.cron && \
     crontab docker.cron')
+    sys.exit()
+
+elif Num == 26:#安装宝塔
+    os.system('yum install -y wget && \
+        wget -O install.sh http://download.bt.cn/install/install_6.0.sh && \
+        sh install.sh')
+    sys.exit()
 
 elif Num == 0:
     sys.exit() 
