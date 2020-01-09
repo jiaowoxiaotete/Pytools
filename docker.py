@@ -31,6 +31,7 @@ def massage():
     print('\033[1;32;40m23\033[0m:Debian安装Docker')
     print('\033[1;32;40m24\033[0m:Debian更新组件')
     print('\033[1;32;40m25\033[0m:Debian定时重启Docker')
+    print('\033[1;32;40m26\033[0m:CentOS安装宝塔')
     print('\033[1;32;40m0\033[0m:退出程序')
     try:
         result = input('----请选择:')
