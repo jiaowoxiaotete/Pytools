@@ -27,7 +27,7 @@ def massage():
     print('\033[1;32;40m19\033[0m:运行CF-DDNS')
     print('\033[1;32;40m20\033[0m:CF-DDNS定时检测')
     print('\033[1;32;40m21\033[0m:关闭手动版V2ray')
-    print('\033[1;32;40m22\033[0m:安装Brook')
+    print('\033[1;32;40m22\033[0m:手动安装Brook')
     print('\033[1;32;40m23\033[0m:Debian安装Docker')
     print('\033[1;32;40m24\033[0m:Debian更新组件')
     print('\033[1;32;40m25\033[0m:Debian定时重启Docker')
@@ -278,7 +278,7 @@ elif Num == 21:#运行CF-DDNS
     os.system('systemctl stop v2ray && systemctl disable v2ray')
     sys.exit()
 
-elif Num == 22:
+elif Num == 22:#Brook手动安装
     port_a = raw_input('请输入转发机端口:')
     abroad_ip = raw_input('请输入被转发机IP:')
     port_b = raw_input('请输入被转发机端口:')
