@@ -322,7 +322,11 @@ elif Num == 27:#安装iptable
             bash natcfg.sh')
     sys.exit()
 
-elif Num == 0:
+elif Num == 28:#SWAP一键脚本
+    os.system('wget  -N --no-check-certificate https://raw.githubusercontent.com/jiaowoxiaotete/Addswap/master/swap.sh && bash swap.sh')
+    sys.exit()
+
+elif Num == 29:
     sys.exit() 
 
 else:
