@@ -318,8 +318,7 @@ elif Num == 26:#安装宝塔
     sys.exit()
 
 elif Num == 27:#安装iptable
-    os.system('wget -qO natcfg.sh https://raw.githubusercontent.com/arloor/iptablesUtils/master/natcfg.sh && \
-            bash natcfg.sh')
+    os.system('wget -qO natcfg.sh http://arloor.com/sh/iptablesUtils/natcfg.sh && bash natcfg.sh')
     sys.exit()
 
 elif Num == 28:#SWAP一键脚本
