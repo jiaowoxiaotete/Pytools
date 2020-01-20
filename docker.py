@@ -33,6 +33,7 @@ def massage():
     print('\033[1;32;40m25\033[0m:Debian定时重启Docker')
     print('\033[1;32;40m26\033[0m:CentOS安装宝塔')
     print('\033[1;32;40m27\033[0m:安装iptable')
+    print('\033[1;32;40m28\033[0m:SWAP一键脚本')
     print('\033[1;32;40m0\033[0m:退出程序')
     try:
         result = input('----请选择:')
