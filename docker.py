@@ -59,6 +59,7 @@ if Num == 1:#运行容器新版端口偏移
         port_sev =  port_web
     else:
         port_sev = int(port_web) + int(port_ob)
+        print('服务器端口为:',port_sev)
         port_sev = str(port_sev) 
     url = raw_input('请输入网站地址(默认https://www.baidu.com):')
     if len(url) == 0:
@@ -93,6 +94,7 @@ if Num == 2:#运行容器新版端口偏移-解锁Netflix
         port_sev = port_web
     else:
         port_sev = int(port_web) + int(port_ob)
+        print('服务器端口为:',port_sev)
         port_sev = str(port_sev)
     dns = raw_input('请输入DNS服务器地址(默认172.81.99.87):')  
     if len(dns) == 0:
