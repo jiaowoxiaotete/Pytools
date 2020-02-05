@@ -50,16 +50,16 @@ if Num == 1:#运行容器新版端口偏移
     node = raw_input('请输入节点ID(默认100):')
     if len(node) == 0:
         node = '100'  
-    port_ob = raw_input('请输入端口偏移量(默认0):')
-    if len(port_ob) == 0:
-        port_sev = '11111'  
-    else:
-        port_ob = int(port_ob)
-        port_sev = 11111 + port_ob
-        port_sev = str(port_sev)
     port_web = raw_input('请输入网站偏移端口(默认11111):')
     if len(port_web) == 0:
-        port_web = '11111'  
+        port_web = '11111' 
+
+    port_ob = raw_input('请输入端口偏移量(默认0):')
+    if len(port_ob) == 0:
+        port_sev =  port_web
+    else:
+        port_sev = int(port_web) + int(port_ob)
+        port_sev = str(port_sev) 
     url = raw_input('请输入网站地址(默认https://www.baidu.com):')
     if len(url) == 0:
         url = 'https://www.baidu.com'
@@ -85,16 +85,15 @@ if Num == 2:#运行容器新版端口偏移-解锁Netflix
     node = raw_input('请输入节点ID(默认100):')
     if len(node) == 0:
         node = '100'
-    port_ob = raw_input('请输入端口偏移量(默认0):')  
-    if len(port_ob) == 0:
-        port_sev = '11111'  
-    else:
-        port_ob = int(port_ob)
-        port_sev = 11111 + port_ob
-        port_sev = str(port_sev)
     port_web = raw_input('请输入网站偏移端口(默认11111):')
     if len(port_web) == 0:
-        port_web = '11111'
+        port_web = '11111'                
+    port_ob = raw_input('请输入端口偏移量(默认0):')  
+    if len(port_ob) == 0:
+        port_sev = port_web
+    else:
+        port_sev = int(port_web) + int(port_ob)
+        port_sev = str(port_sev)
     dns = raw_input('请输入DNS服务器地址(默认172.81.99.87):')  
     if len(dns) == 0:
         dns = '172.81.99.87'  
@@ -326,7 +325,7 @@ elif Num == 28:#SWAP一键脚本
     os.system('wget  -N --no-check-certificate https://raw.githubusercontent.com/jiaowoxiaotete/Addswap/master/swap.sh && bash swap.sh')
     sys.exit()
 
-elif Num == 29:
+elif Num == 0:
     sys.exit() 
 
 else:
