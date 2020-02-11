@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
-#coding=utf-8
 import os
 import sys
 def massage():
@@ -333,10 +332,3 @@ elif Num == 0:
 
 else:
     print('\n对不起没有该功能！！！\n')
-
-# 更换阿里云的源代码
-# yum install -y wget
-# wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
-# yum install -y epel-release
-# yum clean all
-# yum makecache
