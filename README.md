@@ -38,5 +38,5 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/jiaowoxiaotete/
 17. 运行CF-DDNS
 18. CF-DDNS定时检测
 19. 关闭手动版V2ray
-20. 退出程序
+0. 退出程序
 
