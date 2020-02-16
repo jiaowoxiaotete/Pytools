@@ -19,6 +19,7 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/jiaowoxiaotete/
 ```
 
 - ### 主要功能如下
+
 1. 创建新版容器-端口偏移
 2. 创建新版容器-端口偏移-解锁Netflix
 3. 创建原版容器-单端口/多端口
@@ -38,5 +39,7 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/jiaowoxiaotete/
 17. 运行CF-DDNS
 18. CF-DDNS定时检测
 19. 关闭手动版V2ray
-0. 退出程序
+20. 退出程序
+
+只是自己用的一个小脚本，拒绝商用！
 
