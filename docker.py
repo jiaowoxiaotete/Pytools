@@ -225,7 +225,7 @@ elif Num == 10:#V2ray付费版一键对接 脚本内已经开启了开机自启�
 elif Num == 11:#V2ray Docker对接SSP
     os.system('rm -rf v2ray-agent && mkdir v2ray-agent && \
         cd v2ray-agent && \
-        curl https://raw.githubusercontent.com/jiaowoxiaotete/Pytools/master/install.sh -o install.sh && \
+        curl https://raw.githubusercontent.com/jiaowoxiaotete/v2ray-sspanel-v3-free/update2.20/install.sh -o install.sh && \
         chmod +x install.sh && \
         bash install.sh')
     sys.exit()
