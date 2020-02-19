@@ -32,6 +32,9 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/jiaowoxiaotete/
 10. V2ray付费版对接SSP
 11. V2ray免费版-Docker对接SSP
 12. 关闭防火墙
+1. CentOS安装Docker
+1. CenoOS安装wget
+
 13. 安装wget
 14. 安装curl
 15. 安装BBR
