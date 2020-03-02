@@ -34,15 +34,20 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/jiaowoxiaotete/
 12. 关闭防火墙
 1. CentOS安装Docker
 1. CenoOS安装wget
-
-13. 安装wget
-14. 安装curl
-15. 安装BBR
-16. 编辑CF-DDNS
-17. 运行CF-DDNS
-18. CF-DDNS定时检测
+1. CentOS安装curl
+2. CentOS安装vim
+3. CentOS安装BBR
+1. 编辑CF-DDNS脚本
+1. 运行CF-DDNS脚本
+1. 开启CF-DDNS定时检测
 19. 关闭手动版V2ray
+1. 手动安装Brook
+1. Debian安装Docker
+1. Debian更新组件
+1. Debian定时重启Docker
+1. CentOS安装宝塔
+1. 安装iptable
+1. SWAP一键脚本
 20. 退出程序
 
-只是自己用的一个小脚本，拒绝商用！
-
+**只是自己用的一个小脚本，拒绝商用！**
