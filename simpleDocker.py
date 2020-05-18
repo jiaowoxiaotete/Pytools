@@ -305,9 +305,9 @@ elif Num == 24:#Debian 更新组件
     sys.exit()
 
 elif Num == 25:#Debian Docker 定时重启
-    os.system('crontab -l > docker.cron && \
-    echo \'0 4 * * * docker restart $(docker ps -q)\' >> docker.cron && \
-    crontab docker.cron')
+    os.system('crontab -l > docker.cron')
+    os.system('echo \'0 4 * * * docker restart $(docker ps -q)\' >> docker.cron')
+    os.system('crontab docker.cron')
     sys.exit()
 
 elif Num == 26:#安装宝塔
