@@ -66,7 +66,7 @@ if Num == 1:#运行容器新版端口偏移
         -e API_INTERFACE=modwebapi \
         -e WEBAPI_URL='+url+' \
         -e SPEEDTEST=0 \
-        -e WEBAPI_TOKEN=XiaoDaren \
+        -e WEBAPI_TOKEN=ChaoQiang \
         --log-opt max-size=50m \
         --log-opt max-file=3 \
         -p '+port_sev+':'+port_web+'/tcp \
@@ -104,7 +104,7 @@ if Num == 2:#运行容器新版端口偏移-解锁Netflix
         -e API_INTERFACE=modwebapi \
         -e WEBAPI_URL='+url+' \
         -e SPEEDTEST=0 \
-        -e WEBAPI_TOKEN=XiaoDaren \
+        -e WEBAPI_TOKEN=ChaoQiang \
         --log-opt max-size=50m --log-opt max-file=3 \
         -p '+port_sev+':'+port_web+'/tcp \
         -p '+port_sev+':'+port_web+'/udp \
@@ -130,7 +130,7 @@ elif Num == 3:#运行容器原版
     -e MU_REGEX=%5m%id.%suffix \
     -e API_INTERFACE=modwebapi \
     -e WEBAPI_URL='+url+' \
-    -e WEBAPI_TOKEN=XiaoDaren \
+    -e WEBAPI_TOKEN=ChaoQiang \
     --network=host \
     --log-opt max-size=50m \
     --log-opt max-file=3 \
@@ -157,7 +157,7 @@ elif Num == 4:#运行容器原版解锁Netflix
     -e MU_REGEX=%5m%id.%suffix \
     -e API_INTERFACE=modwebapi \
     -e WEBAPI_URL='+url+' \
-    -e WEBAPI_TOKEN=XiaoDaren \
+    -e WEBAPI_TOKEN=ChaoQiang \
     --network=host \
     --log-opt max-size=50m \
     --log-opt max-file=3 \
@@ -195,9 +195,9 @@ elif Num == 9:#V2ray免费版一键对接
         url = 'https://www.baidu.com'
     else:
         print('您的对接网址为：%s'% url)
-    token = raw_input('请输入对接Token(默认XiaoDaren):')
+    token = raw_input('请输入对接Token(默认ChaoQiang):')
     if len(token) == 0:
-        token = 'XiaoDaren'  
+        token = 'ChaoQiang'  
     else:
         print('你的Token为：%s'% token)
     nodeid = raw_input('请输入节点ID:')  
