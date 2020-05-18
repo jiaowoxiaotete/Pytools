@@ -12,10 +12,25 @@
 apt-get update && apt-get install curl vim python-pip iperf3 && pip install speedtest-cli
 ```
 
-- ### 下载脚本
+- ### Debian开启原生BBR
+
+```
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+sysctl -p
+```
+
+- ### 下载完整版脚本
 
 ```  
 wget -N --no-check-certificate https://raw.githubusercontent.com/jiaowoxiaotete/Pydocker/master/docker.py && python docker.py
+```
+
+
+- ### 下载简化版脚本
+
+```  
+wget -N --no-check-certificate https://raw.githubusercontent.com/jiaowoxiaotete/Pydocker/master/simpleDocker.py && python simpleDocker.py
 ```
 
 - ### 主要功能如下
