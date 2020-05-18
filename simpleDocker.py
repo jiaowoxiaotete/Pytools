@@ -137,6 +137,7 @@ elif Num == 3:#运行容器原版
     --log-opt max-size=50m \
     --log-opt max-file=3 \
     --restart=always jiaowoxiaotete/docker-old')
+    print('%s节点添加成功'% node)
     sys.exit()
 
 elif Num == 4:#运行容器原版解锁Netflix
@@ -308,6 +309,7 @@ elif Num == 25:#Debian Docker 定时重启
     os.system('crontab -l > docker.cron')
     os.system('echo \'0 4 * * * docker restart $(docker ps -q)\' >> docker.cron')
     os.system('crontab docker.cron')
+    print('Docker定时重启任务添加成功！')
     sys.exit()
 
 elif Num == 26:#安装宝塔
