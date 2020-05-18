@@ -4,7 +4,6 @@ import os
 import sys
 def massage():
     print('--------\033[1;31;40mDebian服务器配置\033[0m--------')
-    print('\033[1;32;40m24\033[0m:Debian更新组件')
     print('\033[1;32;40m23\033[0m:Debian安装Docker')
     print('\033[1;32;40m25\033[0m:Debian定时重启Docker')
     print('\033[1;32;40m28\033[0m:SWAP一键脚本')
@@ -294,9 +293,12 @@ elif Num == 22:#Brook手动安装
     sys.exit()
 
 elif Num ==23:#Debian安装Docker
-    os.system('curl -sSL https://get.docker.com/ | sh && \
-    systemctl start docker && \
-    systemctl enable docker.service')
+    os.system('apt-get update && \
+        apt-get install curl vim python-pip iperf3 && \
+        pip install speedtest-cli && \
+        curl -sSL https://get.docker.com/ | sh && \
+        systemctl start docker && \
+        systemctl enable docker.service')
     sys.exit()
 
 elif Num == 24:#Debian 更新组件
