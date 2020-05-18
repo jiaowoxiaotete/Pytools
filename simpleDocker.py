@@ -3,29 +3,31 @@
 import os
 import sys
 def massage():
-    print('--------\033[1;31;40m服务器配置\033[0m--------')
+    print('--------\033[1;31;40mDebian服务器配置\033[0m--------')
     print('\033[1;32;40m24\033[0m:Debian更新组件')
     print('\033[1;32;40m23\033[0m:Debian安装Docker')
     print('\033[1;32;40m25\033[0m:Debian定时重启Docker')
     print('\033[1;32;40m28\033[0m:SWAP一键脚本')
-    print('--------\033[1;31;40mDocker节点命令\033[0m--------')
+    print('\033[1;32;40m8\033[0m:Debian系统开通指定端口')
+    print('--------\033[1;31;40mDocker原版节点命令\033[0m--------')
     print('\033[1;32;40m3\033[0m:创建原版容器-单端口/多端口')
+    print('\033[1;32;40m4\033[0m:创建原版容器-单端口/多端口-解锁Netflix')
+    print('--------\033[1;31;40mDocker端口偏移节点命令\033[0m--------')
     print('\033[1;32;40m1\033[0m:创建新版容器-端口偏移')
     print('\033[1;32;40m2\033[0m:创建新版容器-端口偏移-解锁Netflix')
-    print('\033[1;32;40m4\033[0m:创建原版容器-单端口/多端口-解锁Netflix')
+    print('--------\033[1;31;40mV2ray节点对接命令\033[0m--------')
     print('\033[1;32;40m11\033[0m:V2ray对接')
     print('---------\033[1;31;40mDocker命令\033[0m---------')
     print('\033[1;32;40m5\033[0m:删除指定容器')
     print('\033[1;32;40m6\033[0m:重启Docker')
-    print('---------\033[1;31;40m其他命令\033[0m---------')
-    print('\033[1;32;40m17\033[0m:CentOS安装BBR')
-    print('---------\033[1;31;40m其他命令\033[0m---------')
+    print('---------\033[1;31;40mCentOS服务器配置\033[0m---------')
     print('\033[1;32;40m12\033[0m:CentOS关闭防火墙')
+    print('\033[1;32;40m17\033[0m:CentOS安装BBR')
     print('\033[1;32;40m13\033[0m:CentOS安装Docker')
     print('\033[1;32;40m14\033[0m:CentOS安装wget')
     print('\033[1;32;40m15\033[0m:CentOS安装curl')
     print('\033[1;32;40m16\033[0m:CentOS安装vim')
-    print('\033[1;32;40m8\033[0m:Debian系统开通指定端口')
+    print('---------\033[1;31;40m其他服务器配置命令\033[0m---------')
     print('\033[1;32;40m18\033[0m:编辑CF-DDNS')
     print('\033[1;32;40m19\033[0m:运行CF-DDNS')
     print('\033[1;32;40m20\033[0m:CF-DDNS定时检测')
@@ -39,9 +41,9 @@ def massage():
 
 Num  = massage()
 if Num == 1:#运行容器新版端口偏移
-    name = raw_input('请输入容器名称(默认super):')
+    name = raw_input('请输入容器名称(默认chaoqiang):')
     if len(name) ==0:
-        name = 'super'
+        name = 'chaoqiang'
     node = raw_input('请输入节点ID(默认100):')
     if len(node) == 0:
         node = '100'  
@@ -75,9 +77,9 @@ if Num == 1:#运行容器新版端口偏移
     sys.exit()
 
 if Num == 2:#运行容器新版端口偏移-解锁Netflix
-    name = raw_input('请输入容器名称(默认super):')
+    name = raw_input('请输入容器名称(默认chaoqiang):')
     if len(name) ==0:
-        name = 'super'
+        name = 'chaoqiang'
     node = raw_input('请输入节点ID(默认100):')
     if len(node) == 0:
         node = '100'
@@ -114,9 +116,9 @@ if Num == 2:#运行容器新版端口偏移-解锁Netflix
     sys.exit()
 
 elif Num == 3:#运行容器原版
-    name = raw_input('请输入容器名称(默认super):')
+    name = raw_input('请输入容器名称(默认chaoqiang):')
     if len(name) ==0:
-        name = 'super'
+        name = 'chaoqiang'
     node = raw_input('请输入节点ID(默认100):')
     if len(node) == 0:
         node = '100'
@@ -138,9 +140,9 @@ elif Num == 3:#运行容器原版
     sys.exit()
 
 elif Num == 4:#运行容器原版解锁Netflix
-    name = raw_input('请输入容器名称(默认super):')
+    name = raw_input('请输入容器名称(默认chaoqiang):')
     if len(name) ==0:
-        name = 'super'
+        name = 'chaoqiang'
     node = raw_input('请输入节点ID(默认100):')
     if len(node) == 0:
         node = '100'
@@ -166,10 +168,10 @@ elif Num == 4:#运行容器原版解锁Netflix
     --restart=always jiaowoxiaotete/docker-old')
     sys.exit()
 
-elif Num == 5:#重启制定容器
-    name = raw_input('请输入容器名称(默认super):')
+elif Num == 5:#删除指定容器
+    name = raw_input('请输入容器名称(默认chaoqiang):')
     if len(name) == 0:
-        name = 'super'
+        name = 'chaoqiang'
     os.system('docker rm -f '+name)
     sys.exit()
 
