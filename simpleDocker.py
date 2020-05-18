@@ -23,9 +23,7 @@ def massage():
     print('\033[1;32;40m12\033[0m:CentOS关闭防火墙')
     print('\033[1;32;40m17\033[0m:CentOS安装BBR')
     print('\033[1;32;40m13\033[0m:CentOS安装Docker')
-    print('\033[1;32;40m14\033[0m:CentOS安装wget')
-    print('\033[1;32;40m15\033[0m:CentOS安装curl')
-    print('\033[1;32;40m16\033[0m:CentOS安装vim')
+    print('\033[1;32;40m14\033[0m:CentOS安装必要组建')
     print('---------\033[1;31;40m其他服务器配置命令\033[0m---------')
     print('\033[1;32;40m18\033[0m:编辑CF-DDNS')
     print('\033[1;32;40m19\033[0m:运行CF-DDNS')
@@ -242,8 +240,10 @@ elif Num == 13:#Centos 安装CentOS
         systemclt enable docker')
     sys.exit()
 
-elif Num == 14:#Centos 安装wget
-    os.system('yum -y install wget')
+elif Num == 14:#Centos 安装必要组建
+    os.system('yum -y install wget && \
+        yum update nss curl && \
+        yum install vim -y')
     sys.exit()
 
 elif Num == 15:#Centos 更新curl
