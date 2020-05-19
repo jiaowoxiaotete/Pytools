@@ -170,11 +170,13 @@ elif Num == 5:#删除指定容器
     name = raw_input('请输入容器名称(默认chaoqiang):')
     if len(name) == 0:
         name = 'chaoqiang'
-    os.system('docker rm -f '+name)
+    os.system('docker rm -f '+ name)
+    print ('%s容器删除成功！'% name)
     sys.exit()
 
 elif Num == 6: #重启Docker
     os.system('systemctl restart docker')
+    print ('Docker 重启成功！')
     sys.exit()
 
 elif Num == 7:#偏移量计算
