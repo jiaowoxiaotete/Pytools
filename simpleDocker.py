@@ -25,9 +25,10 @@ def massage():
     print('\033[1;32;40m13\033[0m:CentOS安装Docker')
     print('\033[1;32;40m14\033[0m:CentOS安装必要组建')
     print('---------\033[1;31;40m其他服务器配置命令\033[0m---------')
-    print('\033[1;32;40m18\033[0m:编辑CF-DDNS-只能执行一次')
+    print('\033[1;32;40m29\033[0m:下载CF-DDNS脚本')
+    print('\033[1;32;40m18\033[0m:编辑CF-DDNS脚本')
     print('\033[1;32;40m19\033[0m:运行CF-DDNS')
-    print('\033[1;32;40m20\033[0m:CF-DDNS定时检测')
+    print('\033[1;32;40m20\033[0m:CF-DDNS脚本开启定时检测')
     print('\033[1;32;40m0\033[0m:退出程序')
     try:
         result = input('----请选择:')
@@ -262,8 +263,7 @@ elif Num == 17:#BBR加速
     sys.exit()
 
 elif Num == 18:#编辑CF-DDNS
-    os.system('wget  -N --no-check-certificate \
-        https://raw.githubusercontent.com/yulewang/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh && vi cf-v4-ddns.sh')
+    os.system('vi cf-v4-ddns.sh')
     sys.exit()
 
 elif Num == 19:#运行CF-DDNS
@@ -328,6 +328,11 @@ elif Num == 27:#安装iptable
 
 elif Num == 28:#SWAP一键脚本
     os.system('wget  -N --no-check-certificate https://raw.githubusercontent.com/jiaowoxiaotete/Addswap/master/swap.sh && bash swap.sh')
+    sys.exit()
+
+elif Num == 29:#下载
+    os.system('wget  -N --no-check-certificate \
+        https://raw.githubusercontent.com/yulewang/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh')
     sys.exit()
 
 elif Num == 0:
