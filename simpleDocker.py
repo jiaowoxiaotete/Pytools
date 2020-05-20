@@ -263,7 +263,7 @@ elif Num == 17:#BBR加速
     sys.exit()
 
 elif Num == 18:#编辑CF-DDNS
-    os.system('vi cf-v4-ddns.sh')
+    os.system('nano cf-v4-ddns.sh')
     sys.exit()
 
 elif Num == 19:#运行CF-DDNS
