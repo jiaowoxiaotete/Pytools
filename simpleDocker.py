@@ -332,7 +332,7 @@ elif Num == 28:#SWAP一键脚本
 
 elif Num == 29:#下载
     os.system('wget  -N --no-check-certificate \
-        https://raw.githubusercontent.com/yulewang/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh')
+        https://raw.githubusercontent.com/jiaowoxiaotete/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh')
     sys.exit()
 
 elif Num == 0:
