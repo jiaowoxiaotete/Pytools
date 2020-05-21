@@ -61,9 +61,9 @@ if Num == 1:#运行容器新版端口偏移
         port_sev = int(port_web) + int(port_ob)
         print '节点端口为:',port_sev
         port_sev = str(port_sev) 
-    url = raw_input('请输入网站地址(默认https://www.baidu.com):')
+    url = raw_input('请输入网站地址(默认https://super.qaqemm.xyz):')
     if len(url) == 0:
-        url = 'https://www.baidu.com'
+        url = 'https://super.qaqemm.xyz'
     os.system('docker run -d --name='+name+' \
         -e NODE_ID='+node+' \
         -e MU_SUFFIX=cloudfront.com \
@@ -99,9 +99,9 @@ if Num == 2:#运行容器新版端口偏移-解锁Netflix
     dns = raw_input('请输入DNS服务器地址(默认172.81.99.87):')  
     if len(dns) == 0:
         dns = '172.81.99.87'  
-    url = raw_input('请输入网站地址(默认https://www.baidu.com):')  
+    url = raw_input('请输入网站地址(默认https://super.qaqemm.xyz):')  
     if len(url) == 0:
-        url = 'https://www.baidu.com'
+        url = 'https://super.qaqemm.xyz'
     os.system('docker run -d --name='+name+' \
         -e NODE_ID='+node+' \
         -e MU_SUFFIX=cloudfront.com \
@@ -125,9 +125,9 @@ elif Num == 3:#运行容器原版
     node = raw_input('请输入节点ID(默认100):')
     if len(node) == 0:
         node = '100'
-    url = raw_input('请输入网站地址(默认https://www.baidu.com):')  
+    url = raw_input('请输入网站地址(默认https://super.qaqemm.xyz):')  
     if len(url) == 0:
-        url = 'https://www.baidu.com'
+        url = 'https://super.qaqemm.xyz'
     os.system('docker run -d --name='+name+' \
     -e NODE_ID='+node+' \
     -e SPEEDTEST=0 \
@@ -152,9 +152,9 @@ elif Num == 4:#运行容器原版解锁Netflix
     dns = raw_input('请输入DNS服务器地址(默认172.81.99.87-日本):')  
     if len(dns) == 0:
         dns = '172.81.99.87'
-    url = raw_input('请输入网站地址(默认https://www.baidu.com):')  
+    url = raw_input('请输入网站地址(默认https://super.qaqemm.xyz):')  
     if len(url) == 0:
-        url = 'https://www.baidu.com'
+        url = 'https://super.qaqemm.xyz'
     os.system('docker run -d --name='+name+' \
     -e NODE_ID='+node+' \
     -e SPEEDTEST=0 \
@@ -195,9 +195,9 @@ elif Num == 8:#端口防火墙
     sys.exit()
 
 elif Num == 9:#V2ray免费版一键对接
-    url = raw_input('请输入对接网址(默认baidu):')
+    url = raw_input('请输入对接网址(默认super):')
     if len(url) ==0:
-        url = 'https://www.baidu.com'
+        url = 'https://super.qaqemm.xyz'
     else:
         print('您的对接网址为：%s'% url)
     token = raw_input('请输入对接Token(默认XiaoDaren):')
