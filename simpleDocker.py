@@ -19,6 +19,7 @@ def massage():
     print('---------\033[1;31;40mDocker命令\033[0m---------')
     print('\033[1;32;40m5\033[0m:删除指定容器')
     print('\033[1;32;40m6\033[0m:重启Docker')
+    print('\033[1;32;40m30\033[0m:查看所有容器')
     print('---------\033[1;31;40mCentOS服务器配置\033[0m---------')
     print('\033[1;32;40m12\033[0m:CentOS关闭防火墙')
     print('\033[1;32;40m17\033[0m:CentOS安装BBR')
@@ -274,6 +275,8 @@ elif Num == 20:#CF-DENS定时检测
     os.system('crontab -l > cf.cron && \
         echo \'*/2 * * * * /root/cf-v4-ddns.sh >/dev/null 2>&1\' >> cf.cron && \
         crontab cf.cron')
+    os.system('crontab -l')
+    print('DDNS定时检测已开启！')
     sys.exit()
 
 elif Num == 21:#运行CF-DDNS
@@ -333,6 +336,10 @@ elif Num == 28:#SWAP一键脚本
 elif Num == 29:#下载
     os.system('wget  -N --no-check-certificate \
         https://raw.githubusercontent.com/jiaowoxiaotete/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh')
+    sys.exit()
+
+elif Num == 30:#查看所有容器
+    os.system('docker ps')
     sys.exit()
 
 elif Num == 0:
