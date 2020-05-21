@@ -46,9 +46,9 @@ if Num == 1:#运行容器新版端口偏移
     node = raw_input('请输入节点ID(默认100):')
     if len(node) == 0:
         node = '100'  
-    port_web = raw_input('请输入网站偏移端口(默认11111):')
+    port_web = raw_input('请输入网站偏移端口(默认10000):')
     if len(port_web) == 0:
-        port_web = '11111' 
+        port_web = '10000' 
 
     port_ob = raw_input('请输入端口偏移量(默认0):')
     if len(port_ob) == 0:
@@ -82,9 +82,9 @@ if Num == 2:#运行容器新版端口偏移-解锁Netflix
     node = raw_input('请输入节点ID(默认100):')
     if len(node) == 0:
         node = '100'
-    port_web = raw_input('请输入网站偏移端口(默认11111):')
+    port_web = raw_input('请输入网站偏移端口(默认10000):')
     if len(port_web) == 0:
-        port_web = '11111'                
+        port_web = '10000'                
     port_ob = raw_input('请输入端口偏移量(默认0):')  
     if len(port_ob) == 0:
         port_sev = port_web
