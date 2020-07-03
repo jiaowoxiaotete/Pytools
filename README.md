@@ -23,14 +23,14 @@ sysctl -p
 - ### 下载完整版脚本
 
 ```  
-wget -N --no-check-certificate https://raw.githubusercontent.com/jiaowoxiaotete/Pydocker/master/docker.py && python docker.py
+wget -N --no-check-certificate https://raw.githubusercontent.com/jiaowoxiaotete/Pytools/master/docker.py && python docker.py
 ```
 
 
 - ### 下载简化版脚本
 
 ```  
-wget -N --no-check-certificate https://raw.githubusercontent.com/jiaowoxiaotete/Pydocker/master/simpleDocker.py && python simpleDocker.py
+wget -N --no-check-certificate https://raw.githubusercontent.com/jiaowoxiaotete/Pytools/master/simpleDocker.py && python simpleDocker.py
 ```
 
 - ### 主要功能如下
